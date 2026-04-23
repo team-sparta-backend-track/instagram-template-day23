@@ -52,6 +52,8 @@ public class DirectMessageService {
         DirectMessageResponse response = DirectMessageResponse.from(message);
 
         Member other = conversation.getOtherParticipant(senderId);
+
+        // 상대방에게 실시간으로 메시지 전달
         messagingTemplate.convertAndSendToUser(
                 String.valueOf(other.getId()),
                 USER_DM_DESTINATION,
